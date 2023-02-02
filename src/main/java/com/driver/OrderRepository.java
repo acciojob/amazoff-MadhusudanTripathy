@@ -144,8 +144,8 @@ public class OrderRepository {
         orderHashMap.remove(orderId);
 
         for(List<String> ls : pairHashMap.values()){
-            for(String id: ls){
-                if(id.equals(orderId)) ls.remove(orderId);
+            for(int i=0;i<ls.size();i++){
+                if(ls.get(i).equals(orderId)) ls.remove(orderId);
             }
         }
         return orderId + " removed successfully";
