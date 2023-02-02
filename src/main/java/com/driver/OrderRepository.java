@@ -26,6 +26,7 @@ public class OrderRepository {
 
     public String addOrderPartnerPair(String orderId, String partnerId){
         //This is basically assigning that order to that partnerId
+        DeliveryPartner deliveryPartner =deliveryPartnerHashMap.get(partnerId);
         if(pairHashMap.containsKey(partnerId)){
             pairHashMap.get(partnerId).add(orderId);
         }else{
@@ -33,6 +34,7 @@ public class OrderRepository {
             ls.add(orderId);
             pairHashMap.put(partnerId,ls);
         }
+        deliveryPartner.setNumberOfOrders(deliveryPartner.getNumberOfOrders()+1);
         return "New order-partner pair added successfully";
     }
     public Order getOrderById(String orderId){
@@ -91,8 +93,8 @@ public class OrderRepository {
     public Integer getOrdersLeftAfterGivenTimeByPartnerId( String time,  String partnerId){
 
         List<String> orderIds= pairHashMap.get(partnerId);
-        int hh=Integer.valueOf(time.substring(0,2));
-        int mm=Integer.valueOf(time.substring(3));
+        int hh=Integer.parseInt(time.substring(0,2));
+        int mm=Integer.parseInt(time.substring(3));
         int givenTime=hh*60+mm;
         int count=0;
         for(String id:orderIds){
