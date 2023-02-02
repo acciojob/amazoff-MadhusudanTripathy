@@ -79,7 +79,7 @@ public class OrderRepository {
 
     public Integer getCountOfUnassignedOrders(){
         int totalOrders=orderHashMap.size();
-        int totalAssignedOrders=0;
+        int totalAssignedOrders;
         Set<String> assignedOrders = new HashSet<>();
         for(List<String> ls : pairHashMap.values()){
             assignedOrders.addAll(ls);

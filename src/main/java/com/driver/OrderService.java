@@ -7,8 +7,8 @@ import java.util.List;
 
 @Service
 public class OrderService {
-    @Autowired
-    OrderRepository orderRepository;
+//    @Autowired
+    OrderRepository orderRepository = new OrderRepository();
 
     public String addOrder( Order order){
 
@@ -89,7 +89,7 @@ public class OrderService {
         //Delete the partnerId
         //And push all his assigned orders to unassigned orders.
 
-        return orderRepository.deleteOrderById(partnerId);
+        return orderRepository.deletePartnerById(partnerId);
     }
 
 
