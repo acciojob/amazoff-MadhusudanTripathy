@@ -7,15 +7,11 @@ import java.util.*;
 
 @Repository
 public class OrderRepository {
-    HashMap<String ,Order> orderHashMap;
-    HashMap<String ,DeliveryPartner> deliveryPartnerHashMap;
-    HashMap<String,List<String>> pairHashMap;
+    HashMap<String ,Order> orderHashMap= new HashMap<>();
+    HashMap<String ,DeliveryPartner> deliveryPartnerHashMap = new HashMap<>();
+    HashMap<String,List<String>> pairHashMap =new HashMap<>();
 
-    public OrderRepository() {
-        orderHashMap=new HashMap<>();
-        deliveryPartnerHashMap=new HashMap<>();
-        pairHashMap=new HashMap<>();
-    }
+
 
     public String addOrder(Order order){
         orderHashMap.put(order.getId(),order);
